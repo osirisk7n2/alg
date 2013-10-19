@@ -18,8 +18,10 @@ int main() {
       file >> tab[i][j];
   file.close();
 
-  for(int i=0; i<E; i++) drzewo.push_back(make_pair(tab[i][0],tab[i][1]));
+  for(int i=0; i<E; i++) 
+    drzewo.push_back(make_pair(tab[i][0],tab[i][1]));
 
   for(list<pair<int,int> >::iterator it=drzewo.begin(); it!=drzewo.end(); ++it)
     cout << it->first << "-" << it->second << " ";
+  drzewo.clear();
 } 
