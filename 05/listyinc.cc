@@ -23,9 +23,13 @@ int main() {
     listyinc[tab[i][0]].push_back(tab[i][1]);
     listyinc[tab[i][1]].push_back(tab[i][0]);
   }
-
-  for(list<int>::iterator it=listyinc[1].begin(); it !=listyinc[1].end(); ++it)
-    cout << *it;
+  
+  for(int i=1; i<V; ++i) {
+    cout<< i <<": "; 
+    for(list<int>::iterator it=listyinc[i].begin(); it !=listyinc[i].end(); ++it)
+      cout << *it << " ";
+    cout << "\n";
+  }
 
   delete[] listyinc;
 } 
