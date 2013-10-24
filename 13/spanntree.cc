@@ -8,6 +8,7 @@ list<pair<int, int> > tree;
 void dfsFind(int );
 list<pair<int, int> > spannTree() {
   tree.clear();
+  dfsFind(1);
   return tree;
 }
 
@@ -22,7 +23,10 @@ int main() {
     listyinc[tab[i][1]].push_back(tab[i][0]);
   }
 
-  //  dfsFind(1);
+  list<pair<int, int> > t=spannTree();
+  for(list<pair<int, int> >::iterator it=t.begin(); it!=t.end(); ++it)
+	cout<<it->first<<"-"<<it->second<<"\n";
+
   delete[] listyinc, unvisited;
 } 
 
