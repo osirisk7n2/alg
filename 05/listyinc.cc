@@ -13,7 +13,7 @@ int main() {
 
   for(int i = 0; i < E; ++i )
     tab[i] = new int [2];
-  file.open("listyinc.in");
+  file.open("graph.in");
   for(int i=0; i<E; ++i)
     for(int j=0; j<2; ++j)
       file >> tab[i][j];
