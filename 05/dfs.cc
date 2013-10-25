@@ -8,7 +8,7 @@ void dfs(int v) {
   unvisited[v] = false;
   for(list<int>::iterator it = listyinc[v].begin(); it != listyinc[v].end(); ++it) {
     int u = *it; 
-    if(unvisited[u]) dfs(u);
+    if(unvisited[u]) { cout<<u; dfs(u);};
   }
 }
 
