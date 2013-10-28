@@ -29,9 +29,9 @@ int main() {
 
   for(int i=0;i<E+1;++i) unvisited[i] = true;
   tree.clear();
-  dfs(2);
+  dfs(1);
   for(list<pair<int, int> >::iterator it=tree.begin(); it!=tree.end(); ++it)
-	cout<<it->first<<"-"<<it->second<<"\n";
+	cout<<it->first<<"-"<<it->second<<" ";
 
   delete[] listyinc, unvisited, tab;
 } 
