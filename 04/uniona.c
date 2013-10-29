@@ -19,10 +19,7 @@ int main() {
   p[N].next = NULL;
 
   it = &p[0];
-  while (it->next != NULL) {
-    printf("%i", it->x);
-    it = it->next;
-  }
+  while (it->next != NULL) it = it->next;
 
   return 0;
 }
