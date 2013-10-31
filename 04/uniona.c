@@ -2,34 +2,30 @@
 #include <stdlib.h>
 
 int distance(int );
+int p[]={1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
 
 int main() {
-  printf("%i\n", distance(10));
+  printf("%i\n", distance(4));
   return 0;
 }
 
-int distance(int N) {
-  int dist;
+int distance(int n) {
+  int dist, i;
   struct point {
-    char *nazwa;
     union {int x; int y;};
-    struct point *next;
   };
-  typedef struct point points;
-  
-  points p[N], *it;
-  int i; for(i=0; i<N; ++i) {
-    p[i].nazwa = NULL; 
-    p[i].x = 0; p[i].y = 0; 
-    p[i].next = &p[i+1];
+  struct point *it;
+
+  it = (struct point*) malloc (n*sizeof(struct point));
+  dist = 0;
+
+  for (i=0; i<2*n; i+=2) { 
+    it->x = p[i]; 
+    it->y = p[i+1];
+    dist = dist + it->x*it->x + it->y*it->y;
   };
-  p[N].next = NULL; p[N].x = 1;
-  
-  it = &p[0]; dist = 0;
-  while (it->next != NULL) {
-    dist = dist + it->x;
-    it = it->next;
-  }
-  //free (&p);
+
+  free (it);
+
   return dist;
 }
