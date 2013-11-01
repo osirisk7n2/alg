@@ -21,9 +21,8 @@ int distance(int n, int* _x, int* _y) {
   dist = 0;
 
   for (i=0; i<n; i++) { 
-    it->x = _x[i]; 
-    it->y = _y[i];
-    dist = dist + it->x*it->x + it->y*it->y;
+    it->x = _x[i]; it->y = _y[i];
+    dist = dist + it->x * it->x + it->y * it->y;
   };
 
   free (it);

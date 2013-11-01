@@ -5,7 +5,7 @@ class points {
 public:
   int n;
   int distance();
-  points(int _n, int* inx, int* iny);
+  points(int _n, int* _x, int* _y);
   ~points(){ delete[] x, y; };
 private:
   int dist;
@@ -29,10 +29,10 @@ int points::distance() {
   return dist;
 }
 
-points::points(int _n, int *_inx, int *_iny) { 
+points::points(int _n, int *_x, int *_y) { 
   n = _n;   
   x  = new int[n]; y = new int[n];
   for (int i=0; i<n; i++) {
-    x[i] = _inx[i]; y[i] = _iny[i];
+    x[i] = _x[i]; y[i] = _y[i];
   }
 }
