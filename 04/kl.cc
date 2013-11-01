@@ -5,8 +5,8 @@ class points {
 public:
   int n;
   int distance();
-  points(int _n, int* _x, int* _y);
-  ~points(){ delete[] x, y; };
+  points(int, int*, int*);
+  ~points();
 private:
   int dist;
   int *x, *y;
@@ -15,9 +15,10 @@ private:
 int main() {
   int inx[] = {1, 2, 3, 4, 5, 6, 7};
   int iny[] = {1, 2, 3, 4, 5, 6, 7};
+  
   points Pkty (4, inx, iny);
-
   cout << Pkty.distance()<<endl;
+  
   return 0;
 }
 
@@ -36,3 +37,7 @@ points::points(int _n, int *_x, int *_y) {
     x[i] = _x[i]; y[i] = _y[i];
   }
 }
+
+points::~points() {
+  delete[] x, y;
+} 
