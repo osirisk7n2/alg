@@ -34,5 +34,7 @@ int main() {
 	cout<<it->first<<"-"<<it->second<<" ";
 
   delete[] listyinc, unvisited, tab;
+
+  return 0;
 } 
 
