@@ -1,15 +1,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int distance(int );
-int p[]={1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
+int distance(int n, int* _x, int* _y );
 
 int main() {
-  printf("%i\n", distance(4));
+  int x[] = {1, 2, 3, 4, 5, 6};
+  int y[] = {1, 2, 3, 4, 5, 6};
+  printf("%i\n", distance(4, x, y));
   return 0;
 }
 
-int distance(int n) {
+int distance(int n, int* _x, int* _y) {
   int dist, i;
   struct point {
     union {int x; int y;};
@@ -19,10 +20,9 @@ int distance(int n) {
   it = (struct point*) malloc (n*sizeof(struct point));
   dist = 0;
 
-  for (i=0; i<2*n; i+=2) { 
-    it->x = p[i]; 
-    it->y = p[i+1];
-    dist = dist + it->x*it->x + it->y*it->y;
+  for (i=0; i<n; i++) { 
+    it->x = _x[i]; it->y = _y[i];
+    dist = dist + it->x * it->x + it->y * it->y;
   };
 
   free (it);

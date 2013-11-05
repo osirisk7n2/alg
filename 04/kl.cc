@@ -1,29 +1,43 @@
 #include <iostream>
 using namespace std;
 
-class points
-{
+class points {
 public:
-  int distance(int );
+  int n;
+  int distance();
+  points(int, int*, int*);
+  ~points();
 private:
   int dist;
   int *x, *y;
 };
-int tab[]={1, 1, 2, 2, 3, 3, 4, 4, 5, 5};
 
 int main() {
-  points p;
-  cout << p.distance(4)<<endl;
+  int inx[] = {1, 2, 3, 4, 5, 6, 7};
+  int iny[] = {1, 2, 3, 4, 5, 6, 7};
+  
+  points Pkty (4, inx, iny);
+  cout << Pkty.distance()<<endl;
+  
   return 0;
 }
 
-int points::distance(int n) {
+int points::distance() {
   dist = 0;
-  x  = new int[n]; y = new int[n];
-  for (int i=0; i<2*n; i+=2) { 
-    x[i] = tab[i]; y[i] = tab[i+1];
-    dist = dist + x[i]*x[i] + y[i]*y[i];
+  for (int i=0; i<n; i++) {
+    dist = dist + y[i]*y[i] + x[i]*x[i];
   };
-  delete[] x, y;
   return dist;
 }
+
+points::points(int _n, int *_x, int *_y) { 
+  n = _n;   
+  x  = new int[n]; y = new int[n];
+  for (int i=0; i<n; i++) {
+    x[i] = _x[i]; y[i] = _y[i];
+  }
+}
+
+points::~points() {
+  delete[] x, y;
+} 
