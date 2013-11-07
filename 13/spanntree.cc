@@ -18,18 +18,19 @@ void dfs(int v) {
 }
 
 int main() {
-  xmpl();
+  graphin();
+
   listyinc = new list<int>[V+1];
   unvisited = new bool[E+1];
-
   for(int i=0; i<E; i++) {
     listyinc[tab[i][0]].push_back(tab[i][1]);
     listyinc[tab[i][1]].push_back(tab[i][0]);
   }
-
   for(int i=0;i<E+1;++i) unvisited[i] = true;
   tree.clear();
+
   dfs(1);
+
   for(list<pair<int, int> >::iterator it=tree.begin(); it!=tree.end(); ++it)
 	cout<<it->first<<"-"<<it->second<<" ";
 

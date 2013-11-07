@@ -6,7 +6,7 @@ using namespace std;
  
 int **tab = new int *[E];
 
-void xmpl() {
+void graphin() {
   ifstream file;
   for(int i = 0; i < E; ++i )
     tab[i] = new int [2];
