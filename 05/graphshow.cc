@@ -1,22 +1,24 @@
-#include <vector>
+ #include <vector>
 #include "graphio.cc"
+  
 
 class graph {
   vector<int> *inc;
 public:
-  graph( );
+  graph();
   ~graph() { delete[] inc; };
-  class Iterator;
-  friend class Iterator;
+  void print();
 };
-  
+
+
 int main() {
   graphin();
-
   graph G;
 
+  G.print();
   return 0;
 } 
+
 
 graph::graph( ) {
   inc = new vector<int>[E+1];
@@ -26,19 +28,11 @@ graph::graph( ) {
   };
 };
 
-class graph::Iterator {
-  graph &G;
-  int v;
-  vector<int> *t;
-public:
-  Iterator(graph &G, int v);
-  vector<int> begin() {
-    return G.inc[v];
-  };
-  vector<int> next() {
-    return G.inc[v];
-  };
-  bool end() {
-    return t == 0;
-  };
-};
+void graph::print() {
+  for(int i=1; i<V; ++i) {
+    cout<< i <<": ";
+    for(vector<int>::iterator it=inc[i].begin(); it !=inc[i].end(); ++it)
+      cout << *it << " ";
+    cout << "\n";
+  }
+}
