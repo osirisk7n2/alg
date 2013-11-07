@@ -1,36 +1,44 @@
-#include <list>
+#include <vector>
 #include "graphio.cc"
 
 class graph {
-  list<int> *listyinc;
+  vector<int> *inc;
 public:
   graph( );
-  ~graph() { delete[] listyinc; };
-  void print();
+  ~graph() { delete[] inc; };
+  class Iterator;
+  friend class Iterator;
 };
   
 int main() {
   graphin();
 
   graph G;
-  G.print();
 
   return 0;
 } 
 
 graph::graph( ) {
-  listyinc = new list<int>[E+1];
+  inc = new vector<int>[E+1];
   for(int i=0; i<E; i++) {
-    listyinc[tab[i][0]].push_back(tab[i][1]);
-    listyinc[tab[i][1]].push_back(tab[i][0]);
+    inc[tab[i][0]].push_back(tab[i][1]);
+    inc[tab[i][1]].push_back(tab[i][0]);
   };
-}
+};
 
-void graph::print() {
-  for(int i=1; i<E; ++i) {
-    cout<< i <<": ";
-    for(list<int>::iterator it=listyinc[i].begin(); it !=listyinc[i].end(); ++it)
-      cout << *it << " ";
-    cout << "\n";
-  }
-}
+class graph::Iterator {
+  graph &G;
+  int v;
+  vector<int> *t;
+public:
+  Iterator(graph &G, int v);
+  vector<int> begin() {
+    return G.inc[v];
+  };
+  vector<int> next() {
+    return G.inc[v];
+  };
+  bool end() {
+    return t == 0;
+  };
+};
