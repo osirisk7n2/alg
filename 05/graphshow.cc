@@ -12,12 +12,12 @@ public:
 class graph::Iterator {
   graph &G;
   int v;
-  vector<int> *it;
+  vector<int> *t;
 public:
-  Iterator(graph G, int v) : G(G), v(v) { it = NULL; };
+  Iterator(graph &G, int v) : G(G), v(v) { t = NULL; };
   int begin() { return 0;};
   int next() { return 0; };
-  bool end() { return it == NULL; };
+  bool end() { return t == NULL; };
 };
 
 int main() {
