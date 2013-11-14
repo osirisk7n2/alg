@@ -15,8 +15,8 @@ class graph::Iterator {
   vector<int> *t;
 public:
   Iterator(graph &G, int v) : G(G), v(v) { t = NULL; };
-  int begin() { return 0;};
-  int next() { return 0; };
+  int begin() { vector<int>::iterator it = G.inc[v].begin(); return *it; };
+  int next() { vector<int>::iterator it = G.inc[v].begin(); ++it; return *it;  };
   bool end() { return t == NULL; };
 };
 
