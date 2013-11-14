@@ -22,9 +22,9 @@ public:
 
 int main() {
   graphin();
-  graph G; graph::Iterator it (G, 0);
+  graph G; graph::Iterator lst (G, 0);
 
-  for (int w = it.begin(); !it.end(); it.next()) ;
+  for (int it = lst.begin(); !lst.end(); lst.next()) ;
   return 0;
 } 
 
