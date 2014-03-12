@@ -6,22 +6,36 @@
 // using namespace std;
 
 /*
+
 struct Punkt { int x1; int x2; };
 
 class Figura {
+
 public:
-  void rysuj() const;
+  void draw() const;
+  void set_color(Color col);
+  Color color() const;
+  void set_style(line_style sty);
+  Line_style style() const;
   Punkt pkt(int i) const;
+  int number_of_points() const;
   virtual ~Figura() { }
+
 protected:
   Figura();
   void dodaj(Punkt p);
   void set_punkt(int i, Punkt p);
+
 private:
   vector<Punkt> pkts;
+  Color lcolor;
+  Line_style ls;
+  Color fcolor;
+
   Figura(const Figura&);
   Figura& operator=(const Figura&);
 };
+
 */
 
 class Rysunek : public Fl_Widget
@@ -34,7 +48,7 @@ public:
 
 int main()
 {
-  Fl_Window window(300, 300, "Rysowanie");
+  Fl_Window window(300, 300, "Figury");
   Rysunek rysunek(0, 0, 300, 300);
   window.end();
   window.show();
