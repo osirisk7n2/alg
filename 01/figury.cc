@@ -42,10 +42,10 @@ int main()
 }
 
 
-void Rysunek::draw( void )
+void Rysunek::draw(void )
 {
-  fl_color( FL_BLACK );
-  fl_line_style( FL_DASH, 3 );
-  fl_line( 50, 50, 100, 100 );
-  fl_rect( 200, 200, 20, 50 );
+  fl_color(FL_BLACK);
+  fl_line_style(FL_DASH, 3);
+  fl_line(50, 50, 100, 100);
+  fl_rect(200, 200, 20, 50);
 }
