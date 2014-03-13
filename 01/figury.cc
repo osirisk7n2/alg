@@ -1,11 +1,7 @@
-// #include <iostream>
-// #include <vector>
-#include <FL/Fl.H>
-#include <FL/Fl_Window.H>
-#include <FL/fl_draw.H>
-// using namespace std;
-
 /*
+#include <iostream>
+#include <vector>
+using namespace std;
 
 struct Punkt { int x1; int x2; };
 
@@ -35,10 +31,13 @@ private:
   Figura(const Figura&);
   Figura& operator=(const Figura&);
 };
-
 */
 
-class Rysunek : public Fl_Widget
+#include <FL/Fl.H>
+#include <FL/Fl_Window.H>
+#include <FL/fl_draw.H>
+
+class Rysunek : public Fl_Widget // derywacja klasy bazowej
 {
   void draw( void );
 public:
