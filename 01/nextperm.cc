@@ -1,5 +1,3 @@
-//std:next_permutation in gnu libstdc++ 4.7 version 
-
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -49,14 +47,10 @@ int main()
   int tmp[] = { 1, 2, 3, 4 };
   std::vector<int> v( tmp, tmp+4 ); 
   
-  do
-    {
-      for (int i = 0; i < 4; i++)
-	{
-	  cout << v[i] << " ";
-	}
-      cout << endl;
-    }
+  do {
+    for (int i = 0; i < 4; i++) { cout << v[i] << " "; }
+    cout << endl; }
   while (::next_permutation(v.begin(), v.end()));
+  
   return 0;
 }
