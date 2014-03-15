@@ -6,11 +6,12 @@ public:
   int n;
   int *p;
 
-  Permut() {
+  Permutacja(int m) {
+    n = m;
     p = new int[n+1];
     for (int i = 1; i < n+1; ++i) p[i] = i;
   };
-  ~Permut() { delete[] p; };
+  ~Permutacja() { delete[] p; };
 
   void wypisz() {
     for (int i = 1; i < n+1; ++i) cout << p[i] << ' ';
@@ -30,7 +31,7 @@ public:
     if (m == 1) wypisz(); 
     else {
       for (int i=1; i < m+1; ++i) {
-	Permut::antyleks(m-1);
+	antyleks(m-1);
 	if (i < m) {
 	  swap(p[i], p[m]);
 	  odwrocenie(m-1); }
@@ -41,10 +42,7 @@ public:
 
 
 int main() {
-  Permutacja ro; 
-  ro.n = 3;
-
+  Permutacja ro(3); 
   ro.generowanie(); 
-  
   return 0;
 }
