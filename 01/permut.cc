@@ -42,7 +42,8 @@ public:
 
 
 int main() {
-  Permutacja ro(3); 
-  ro.generowanie(); 
+  Permutacja rho(3); 
+  
+  rho.generowanie(); 
   return 0;
 }
