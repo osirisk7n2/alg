@@ -3,21 +3,25 @@ using namespace std;
 
 int n;
 int *p;
-void (*pobranie)(int[]); // pobranie permutacji
-void odwrocenie(int ); // odwrocenie ciagu p[1], .., p[n]
-void generowanie(int , void (*f)(int[]) ); 
-void antyleks(int ); 
-void wypisz(int p[]);
+class Permut {  
+public:
+  static void wypisz(int p[]);
+  static void odwrocenie(int ); // odwrocenie ciagu p[1], .., p[n]
+  static void generowanie(int ); // funkcja glowna
+  static void antyleks(int ); 
+};
 
 
 int main() {
   n = 3;
-  generowanie(n, wypisz); 
+
+  Permut::generowanie(n); 
+
   return 0;
 }
 
 
-void odwrocenie(int m) {
+void Permut::odwrocenie(int m) {
   int i = 1, j = m;
   while(i<j) {
     swap(p[i], p[j]);
@@ -25,29 +29,28 @@ void odwrocenie(int m) {
   }
 }
 
-void antyleks(int m) {
-  if (m == 1) pobranie(p); 
+void Permut::antyleks(int m) {
+  if (m == 1) Permut::wypisz(p); 
   else {
     for (int i=1; i<m+1; ++i) {
-      antyleks(m-1);
+      Permut::antyleks(m-1);
       if (i < m) {
 	swap(p[i], p[m]);
-	odwrocenie(m-1);
+	Permut::odwrocenie(m-1);
       }
     }
   }
 }
 
-void generowanie(int n, void (*f)(int[])) {
+void Permut::generowanie(int n ) {
   p = new int[n+1];
-  pobranie = f;
   for (int i = 1; i < n+1; ++i) p[i] = i;
   
-  antyleks(n);
+  Permut::antyleks(n);
   delete[] p;
 }
 
-void wypisz(int p[]) {
+void Permut::wypisz(int p[]) {
   for (int i = 1; i < n+1; ++i) cout << p[i] << ' ';
   cout << '\n';
 } 
