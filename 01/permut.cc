@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class Permut { 
+class Permutacja { 
 public:
   int n;
   int *p;
@@ -41,10 +41,10 @@ public:
 
 
 int main() {
-  Permut x; 
-  x.n = 3;
+  Permutacja ro; 
+  ro.n = 3;
 
-  x.generowanie(); 
+  ro.generowanie(); 
   
   return 0;
 }
